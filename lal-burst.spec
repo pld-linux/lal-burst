@@ -1,12 +1,12 @@
 Summary:	LAL routines for burst gravitational wave data analysis
 Summary(pl.UTF-8):	Procedury LAL do analizy danych fal grawitacyjnych wybuchów
 Name:		lal-burst
-Version:	1.4.4
-Release:	2
+Version:	1.5.2
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://software.ligo.org/lscsoft/source/lalsuite/lalburst-%{version}.tar.xz
-# Source0-md5:	05091e9326151df70f99b425e7b46f41
+# Source0-md5:	6bdb360c823cc5f0427d0b4fe6a94df3
 Patch0:		%{name}-env.patch
 URL:		https://wiki.ligo.org/DASWG/LALSuite
 BuildRequires:	autoconf >= 2.63
@@ -136,10 +136,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README
+%doc AUTHORS README.md
 %attr(755,root,root) %{_bindir}/lalburst_version
 %attr(755,root,root) %{_libdir}/liblalburst.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/liblalburst.so.5
+%attr(755,root,root) %ghost %{_libdir}/liblalburst.so.6
 /etc/shrc.d/lalburst-user-env.csh
 /etc/shrc.d/lalburst-user-env.fish
 /etc/shrc.d/lalburst-user-env.sh
