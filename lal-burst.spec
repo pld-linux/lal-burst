@@ -1,12 +1,12 @@
 Summary:	LAL routines for burst gravitational wave data analysis
 Summary(pl.UTF-8):	Procedury LAL do analizy danych fal grawitacyjnych wybuchów
 Name:		lal-burst
-Version:	1.5.2
+Version:	1.5.9
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://software.ligo.org/lscsoft/source/lalsuite/lalburst-%{version}.tar.xz
-# Source0-md5:	6bdb360c823cc5f0427d0b4fe6a94df3
+# Source0-md5:	7367e2396e161fd8c24eff74bedc0e4d
 Patch0:		%{name}-env.patch
 URL:		https://wiki.ligo.org/DASWG/LALSuite
 BuildRequires:	autoconf >= 2.63
@@ -19,8 +19,8 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:2
 BuildRequires:	octave-devel >= 1:3.2.0
 BuildRequires:	pkgconfig
-BuildRequires:	python-devel >= 1:2.6
-BuildRequires:	python-numpy-devel >= 1:1.7
+BuildRequires:	python3-devel
+BuildRequires:	python3-numpy-devel
 BuildRequires:	swig >= 3.0.12
 BuildRequires:	swig-python >= 2.0.12
 BuildRequires:	tar >= 1:1.22
@@ -77,25 +77,25 @@ Octave interface for LAL Burst.
 %description -n octave-lalburst -l pl.UTF-8
 Interfejs Octave do biblioteki LAL Burst.
 
-%package -n python-lalburst
+%package -n python3-lalburst
 Summary:	Python bindings for LAL Burst
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki LAL Burst
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
-Requires:	python-lal >= 6.18.0
-Requires:	python-lalmetaio >= 1.3.1
-Requires:	python-lalsimulation >= 1.7.0
-Requires:	python-modules >= 1:2.6
-Requires:	python-matplotlib
-Requires:	python-numpy >= 1:1.7
-Requires:	python-scipy
+Requires:	python3-lal >= 6.18.0
+Requires:	python3-lalmetaio >= 1.3.1
+Requires:	python3-lalsimulation >= 1.7.0
+Requires:	python3-modules
+Requires:	python3-matplotlib
+Requires:	python3-numpy >= 1:1.7
+Requires:	python3-scipy
 #python-glue (glue.lilolw, glue.offsetvector)
 #python-pylal
 
-%description -n python-lalburst
+%description -n python3-lalburst
 Python bindings for LAL Burst.
 
-%description -n python-lalburst -l pl.UTF-8
+%description -n python3-lalburst -l pl.UTF-8
 Wiązania Pythona do biblioteki LAL Burst.
 
 %prep
@@ -125,8 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/shrc.d
 %{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/*sh $RPM_BUILD_ROOT/etc/shrc.d
 
-%py_postclean
-%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/lalburst/cs_gamma.{la,a}
+%{__rm} $RPM_BUILD_ROOT%{py3_sitedir}/lalburst/cs_gamma.{la,a}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -167,9 +166,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/octave/*/site/oct/*/lalburst.oct
 
-%files -n python-lalburst
+%files -n python3-lalburst
 %defattr(644,root,root,755)
-%dir %{py_sitedir}/lalburst
-%attr(755,root,root) %{py_sitedir}/lalburst/_lalburst.so
-%attr(755,root,root) %{py_sitedir}/lalburst/cs_gamma.so
-%{py_sitedir}/lalburst/*.py[co]
+%dir %{py3_sitedir}/lalburst
+%attr(755,root,root) %{py3_sitedir}/lalburst/_lalburst.so
+%attr(755,root,root) %{py3_sitedir}/lalburst/cs_gamma.so
+%{py3_sitedir}/lalburst/*.py
+%{py3_sitedir}/lalburst/__pycache__
