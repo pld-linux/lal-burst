@@ -2,7 +2,7 @@ Summary:	LAL routines for burst gravitational wave data analysis
 Summary(pl.UTF-8):	Procedury LAL do analizy danych fal grawitacyjnych wybuchów
 Name:		lal-burst
 Version:	1.5.9
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://software.ligo.org/lscsoft/source/lalsuite/lalburst-%{version}.tar.xz
