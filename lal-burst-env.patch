@@ -1,7 +1,7 @@
---- lalburst-1.4.4/Makefile.am.orig	2015-03-27 05:14:39.000000000 +0100
-+++ lalburst-1.4.4/Makefile.am	2017-07-05 21:57:50.194830269 +0200
-@@ -23,11 +23,6 @@
- user_environment = \
+--- lalburst-2.0.4/Makefile.am.orig	2024-06-04 22:09:52.297499622 +0200
++++ lalburst-2.0.4/Makefile.am	2024-06-04 22:11:20.727020558 +0200
+@@ -26,11 +26,6 @@ user_environment = \
+ 	trailingcolon MANPATH; \
  	set $(PACKAGE)_PREFIX $(prefix); \
  	set $(PACKAGE)_DATADIR $(pkgdatadir); \
 -	prepend MANPATH $(mandir); \

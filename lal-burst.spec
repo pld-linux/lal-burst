@@ -1,21 +1,21 @@
 Summary:	LAL routines for burst gravitational wave data analysis
 Summary(pl.UTF-8):	Procedury LAL do analizy danych fal grawitacyjnych wybuchów
 Name:		lal-burst
-Version:	1.7.0
+Version:	2.0.4
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://software.igwn.org/lscsoft/source/lalsuite/lalburst-%{version}.tar.xz
-# Source0-md5:	459bac117aec0a53b6dfeb258e1cde8a
+# Source0-md5:	5c61a04722478169daa1009bcebc6a9b
 Patch0:		%{name}-env.patch
 URL:		https://wiki.ligo.org/Computing/LALSuite
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	gsl-devel >= 1.13
-BuildRequires:	help2man
-BuildRequires:	lal-devel >= 7.2.2
-BuildRequires:	lal-metaio-devel >= 3.0.0
-BuildRequires:	lal-simulation-devel >= 4.0.0
+BuildRequires:	help2man >= 1.37
+BuildRequires:	lal-devel >= 7.5.0
+BuildRequires:	lal-metaio-devel >= 4.0.0
+BuildRequires:	lal-simulation-devel >= 5.4.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:2
 BuildRequires:	octave-devel >= 1:3.2.0
@@ -27,9 +27,9 @@ BuildRequires:	swig-python >= 3.0.11
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	gsl >= 1.13
-Requires:	lal >= 7.2.2
-Requires:	lal-metaio >= 3.0.0
-Requires:	lal-simulation >= 4.0.0
+Requires:	lal >= 7.5.0
+Requires:	lal-metaio >= 4.0.0
+Requires:	lal-simulation >= 5.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,9 +44,9 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki lal-burst
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gsl-devel >= 1.13
-Requires:	lal-devel >= 7.2.2
-Requires:	lal-metaio-devel >= 3.0.0
-Requires:	lal-simulation-devel >= 4.0.0
+Requires:	lal-devel >= 7.5.0
+Requires:	lal-metaio-devel >= 4.0.0
+Requires:	lal-simulation-devel >= 5.4.0
 
 %description devel
 Header files for lal-burst library.
@@ -71,9 +71,9 @@ Summary:	Octave interface for LAL Burst
 Summary(pl.UTF-8):	Interfejs Octave do biblioteki LAL Burst
 Group:		Applications/Math
 Requires:	%{name} = %{version}-%{release}
-Requires:	octave-lal >= 7.2.2
-Requires:	octave-lalmetaio >= 3.0.0
-Requires:	octave-lalsimulation >= 4.0.0
+Requires:	octave-lal >= 7.5.0
+Requires:	octave-lalmetaio >= 4.0.0
+Requires:	octave-lalsimulation >= 5.4.0
 
 %description -n octave-lalburst
 Octave interface for LAL Burst.
@@ -86,9 +86,9 @@ Summary:	Python bindings for LAL Burst
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki LAL Burst
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
-Requires:	python3-lal >= 7.2.2
-Requires:	python3-lalmetaio >= 3.0.0
-Requires:	python3-lalsimulation >= 4.0.0
+Requires:	python3-lal >= 7.5.0
+Requires:	python3-lalmetaio >= 4.0.0
+Requires:	python3-lalsimulation >= 5.4.0
 Requires:	python3-ligo-lw >= 1.7.0
 Requires:	python3-lscsoft-glue
 Requires:	python3-matplotlib
@@ -144,7 +144,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS README.md
 %attr(755,root,root) %{_bindir}/lalburst_*
 %attr(755,root,root) %{_libdir}/liblalburst.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/liblalburst.so.6
+%attr(755,root,root) %ghost %{_libdir}/liblalburst.so.8
 /etc/shrc.d/lalburst-user-env.csh
 /etc/shrc.d/lalburst-user-env.fish
 /etc/shrc.d/lalburst-user-env.sh
@@ -156,7 +156,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/lal/EPSearch.h
 %{_includedir}/lal/GenerateBurst.h
 %{_includedir}/lal/LALBurst*.h
-%{_includedir}/lal/LIGOLwXMLBurstRead.h*
 %{_includedir}/lal/SWIGLALBurst*.h
 %{_includedir}/lal/SWIGLALBurst*.i
 %{_includedir}/lal/SnglBurstUtils.h
