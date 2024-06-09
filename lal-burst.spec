@@ -115,6 +115,7 @@ Wiązania Pythona do biblioteki LAL Burst.
 %{__autoheader}
 %{__automake}
 %configure \
+	PYTHON=%{__python3} \
 	--disable-silent-rules \
 	--enable-swig
 %{__make}
@@ -142,13 +143,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS README.md
-%attr(755,root,root) %{_bindir}/lalburst_*
+%attr(755,root,root) %{_bindir}/lalburst_version
 %attr(755,root,root) %{_libdir}/liblalburst.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/liblalburst.so.8
 /etc/shrc.d/lalburst-user-env.csh
 /etc/shrc.d/lalburst-user-env.fish
 /etc/shrc.d/lalburst-user-env.sh
-%{_mandir}/man1/lalburst_*.1*
+%{_mandir}/man1/lalburst_version.1*
 
 %files devel
 %defattr(644,root,root,755)
@@ -174,8 +175,32 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n python3-lalburst
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/lalburst_cluster
+%attr(755,root,root) %{_bindir}/lalburst_coinc
+%attr(755,root,root) %{_bindir}/lalburst_cut
+%attr(755,root,root) %{_bindir}/lalburst_gen_timeslides
+%attr(755,root,root) %{_bindir}/lalburst_inj_pic
+%attr(755,root,root) %{_bindir}/lalburst_injfind
+%attr(755,root,root) %{_bindir}/lalburst_plot_tisi
+%attr(755,root,root) %{_bindir}/lalburst_power_calc_likelihood
+%attr(755,root,root) %{_bindir}/lalburst_power_final
+%attr(755,root,root) %{_bindir}/lalburst_power_meas_likelihood
+%attr(755,root,root) %{_bindir}/lalburst_power_plot_binj
+%attr(755,root,root) %{_bindir}/lalburst_power_plot_binjtf
 %dir %{py3_sitedir}/lalburst
 %attr(755,root,root) %{py3_sitedir}/lalburst/_lalburst.so
 %attr(755,root,root) %{py3_sitedir}/lalburst/cs_gamma.so
 %{py3_sitedir}/lalburst/*.py
 %{py3_sitedir}/lalburst/__pycache__
+%{_mandir}/man1/lalburst_cluster.1*
+%{_mandir}/man1/lalburst_coinc.1*
+%{_mandir}/man1/lalburst_cut.1*
+%{_mandir}/man1/lalburst_gen_timeslides.1*
+%{_mandir}/man1/lalburst_inj_pic.1*
+%{_mandir}/man1/lalburst_injfind.1*
+%{_mandir}/man1/lalburst_plot_tisi.1*
+%{_mandir}/man1/lalburst_power_calc_likelihood.1*
+%{_mandir}/man1/lalburst_power_final.1*
+%{_mandir}/man1/lalburst_power_meas_likelihood.1*
+%{_mandir}/man1/lalburst_power_plot_binj.1*
+%{_mandir}/man1/lalburst_power_plot_binjtf.1*
